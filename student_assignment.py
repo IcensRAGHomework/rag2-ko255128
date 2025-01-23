@@ -23,7 +23,7 @@ def hw02_2(q2_pdf):
     # print(docs)
     textSplitter = RecursiveCharacterTextSplitter(separators=["\n   第 .* 章","\n第 \\d* 條","\n第 \\d*-\\d* 條"], chunk_size=12 ,chunk_overlap=0, is_separator_regex=True)
     chunks = textSplitter.split_text(texts)
-    return chunks
+    return len(chunks)
 
 
 # if __name__ == "__main__":
