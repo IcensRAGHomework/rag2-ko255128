@@ -17,6 +17,7 @@ def hw02_1(q1_pdf):
 def hw02_2(q2_pdf):
     loader = PyPDFLoader(q2_pdf)
     docs = loader.load()
+    assert q2_pdf == 0
     texts= ""
     for doc in docs:
         texts = texts + doc.page_content + "\n"
