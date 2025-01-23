@@ -19,9 +19,9 @@ def hw02_2(q2_pdf):
     docs = loader.load()
     texts= ""
     for doc in docs:
-        texts = texts + doc.page_content
+        texts = texts + doc.page_content + "\n"
     # print(docs)
-    textSplitter = RecursiveCharacterTextSplitter(separators=["\n   第 .* 章","\n第 \\d* 條","\n第 \\d*-\\d* 條"], chunk_size=12 ,chunk_overlap=0, is_separator_regex=True)
+    textSplitter = RecursiveCharacterTextSplitter(separators=["   第 .* 章","第 \\d* 條","第 \\d*-\\d* 條"], chunk_size=12 ,chunk_overlap=0, is_separator_regex=True)
     chunks = textSplitter.split_text(texts)
     return len(chunks)
 
