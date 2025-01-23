@@ -17,15 +17,16 @@ def hw02_1(q1_pdf):
 def hw02_2(q2_pdf):
     loader = PyPDFLoader(q2_pdf)
     docs = loader.load()
-    textSplitter = RecursiveCharacterTextSplitter(separators=["第 "], chunk_size=30 ,chunk_overlap=0)
+    # print(docs)
+    textSplitter = RecursiveCharacterTextSplitter(separators=["\n   第 .* 章","\n第 \\d* 條","\n第 \\d*-\\d* 條"], chunk_size=12 ,chunk_overlap=0, is_separator_regex=True)
     chunks = textSplitter.split_documents(docs)
     return len(chunks)
 
 
-if __name__ == "__main__":
-    pass
-    # response = hw02_2(q2_pdf)
-    # for element in response:
-    #     print(element.metadata)
-    #     print(element.page_content)
-    #     print()
+# if __name__ == "__main__":
+#     response = hw02_2(q2_pdf)
+#     print ("lenth:", len(response))
+#     for element in response:
+#         print(element.metadata)
+#         print(element.page_content)
+#         print()
